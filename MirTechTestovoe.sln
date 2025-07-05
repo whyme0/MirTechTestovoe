@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "mirtechtestovoe.client", "mirtechtestovoe.client\mirtechtestovoe.client.esproj", "{30ED9480-DECD-5F15-D0EB-D083AF0E2186}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirTechTestovoe.Server", "MirTechTestovoe.Server\MirTechTestovoe.Server.csproj", "{AB55D2BB-2D1C-4496-9299-24C2B314B8B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30ED9480-DECD-5F15-D0EB-D083AF0E2186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30ED9480-DECD-5F15-D0EB-D083AF0E2186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30ED9480-DECD-5F15-D0EB-D083AF0E2186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30ED9480-DECD-5F15-D0EB-D083AF0E2186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30ED9480-DECD-5F15-D0EB-D083AF0E2186}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AB55D2BB-2D1C-4496-9299-24C2B314B8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB55D2BB-2D1C-4496-9299-24C2B314B8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB55D2BB-2D1C-4496-9299-24C2B314B8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB55D2BB-2D1C-4496-9299-24C2B314B8B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F370397-C584-4266-B616-7C5E21827E12}
+	EndGlobalSection
+EndGlobal

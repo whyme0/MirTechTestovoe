@@ -1,0 +1,6 @@
+@MirTechTestovoe.Server_HostAddress = http://localhost:5068
+
+GET {{MirTechTestovoe.Server_HostAddress}}/employees/
+Accept: application/json
+
+###

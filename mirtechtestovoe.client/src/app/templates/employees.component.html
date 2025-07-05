@@ -1,0 +1,104 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Сотрудники</h2>
+  <table class="table table-bordered text-center">
+    <thead>
+      <tr>
+        <th>Отдел <button class="btn btn-sm" (click)="sort('department')">⇅</button></th>
+        <th>ФИО <button class="btn btn-sm" (click)="sort('fullname')">⇅</button></th>
+        <th>Дата рождения <button class="btn btn-sm" (click)="sort('birthdate')">⇅</button></th>
+        <th>Дата устройства на работу <button class="btn btn-sm" (click)="sort('employmentdate')">⇅</button></th>
+        <th>Заработная плата <button class="btn btn-sm" (click)="sort('salary')">⇅</button></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of employees">
+        <td>{{ e.department }}</td>
+        <td>{{ e.fullName }}</td>
+        <td>{{ e.birthDate }}</td>
+        <td>{{ e.employmentDate }}</td>
+        <td>{{ e.salary }}</td>
+        <td class="d-flex justify-content-center gap-2">
+          <button class="btn btn-success btn-sm mb-2" (click)="openEdit(employeeModal)" title="Добавить сотрудника">+</button>
+          <button class="btn btn-primary btn-sm me-2" (click)="openEdit(employeeModal, e)" title="Изменить данные сотрудника">E</button>
+          <button class="btn btn-danger btn-sm" (click)="confirmDelete(confirmModal, e)" title="Удалить сотрудника">-</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #employeeModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ selectedEmployee.id ? 'Редактировать сотрудника' : 'Создать сотрудника' }}</h5>
+    <h6>{{ selectedEmployee.id ? `(${originalEmployee.fullName})` : '' }}</h6>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <form #employeeForm="ngForm">
+      <div class="mb-3">
+        <p>Введите название отдела</p>
+        <input class="form-control"
+               [(ngModel)]="selectedEmployee.department"
+               name="department"
+               [required]="!selectedEmployee?.id"
+               placeholder="Отдел">
+      </div>
+      <div class="mb-3">
+        <p>Введите ФИО</p>
+        <input class="form-control"
+               [(ngModel)]="selectedEmployee.fullName"
+               name="fullName"
+               [required]="!selectedEmployee?.id"
+               placeholder="ФИО">
+      </div>
+      <div class="mb-3">
+        <p>Введите дату рождения</p>
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="selectedEmployee.birthDate"
+               name="birthDate"
+               [required]="!selectedEmployee?.id">
+      </div>
+      <div class="mb-3">
+        <p>Введите дату трудоустройства</p>
+        <input type="date"
+               class="form-control"
+               [(ngModel)]="selectedEmployee.employmentDate"
+               name="employmentDate"
+               [required]="!selectedEmployee?.id">
+      </div>
+      <div class="mb-3">
+        <p>Введите зарплату</p>
+        <input type="number"
+               class="form-control"
+               [(ngModel)]="selectedEmployee.salary"
+               name="salary"
+               [required]="!selectedEmployee?.id"
+               placeholder="Зарплата">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="modal.dismiss()">Отмена</button>
+    <button class="btn btn-primary"
+            [disabled]="!employeeForm.valid && !selectedEmployee?.id"
+            (click)="save()">
+      {{ selectedEmployee.id ? 'Сохранить' : 'Создать' }}
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #confirmModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Подтверждение удаления</h5>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <p>Удалить сотрудника {{ selectedEmployee.fullName }}?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="modal.dismiss()">Отмена</button>
+    <button class="btn btn-danger" (click)="delete()">Удалить</button>
+  </div>
+</ng-template>
